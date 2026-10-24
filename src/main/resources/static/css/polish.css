@@ -1,0 +1,238 @@
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-color: var(--gold);
+}
+
+.search-panel input:focus-visible,
+.search-panel select:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.booking-plan {
+  margin-top: 16px;
+  padding: 16px;
+  border-left: 3px solid var(--gold);
+  background: var(--wash);
+}
+
+.booking-plan p {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.booking-plan .plan-summary {
+  margin: 12px 0;
+  color: var(--muted);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.payment-box {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.payment-box form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 10px;
+}
+
+.payment-box label {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.payment-box input {
+  min-width: 0;
+}
+
+.hotel-date-label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: min(210px, 100%);
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.hotel-date-label input {
+  width: 100%;
+}
+
+.admin-form {
+  width: min(100%, 900px);
+  margin: 20px auto 0;
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 5px 18px #183b5608;
+}
+
+.admin-form .form-grid > div {
+  min-width: 0;
+}
+
+.admin-form .form-grid .full-width {
+  grid-column: 1 / -1;
+}
+
+.admin-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.inline-search input,
+.inline-search select,
+.search-panel input,
+.search-panel select {
+  min-width: 0;
+}
+
+.empty-state {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  body .site-header {
+    height: 68px;
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+
+  body .site-header .mobile-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  body .site-header #primary-navigation {
+    position: absolute;
+    top: 67px;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 16px 24px 20px;
+    border-top: 1px solid var(--line);
+    background: #fff;
+    box-shadow: var(--shadow);
+  }
+
+  body .site-header #primary-navigation.open {
+    display: flex;
+  }
+
+  body .site-header #primary-navigation a {
+    width: 100%;
+    padding: 9px 0;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 760px) {
+  .admin-panels {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-panel {
+    min-width: 0;
+  }
+
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .footer-main > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .payment-box form {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-box label {
+    grid-column: auto;
+  }
+
+  body .header-actions form {
+    display: flex;
+  }
+
+  .header-actions .text-button {
+    padding: 6px;
+    font-size: 11px;
+  }
+
+  .booking-plan {
+    padding: 13px;
+  }
+
+  .admin-form {
+    padding: 20px 16px;
+  }
+
+  .admin-form .form-actions {
+    justify-content: stretch;
+  }
+
+  .admin-form .form-actions .btn {
+    flex: 1 1 140px;
+  }
+}
+
+@media (max-width: 420px) {
+  body .site-header {
+    gap: 8px;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  body .site-header .brand {
+    gap: 7px;
+    font-size: 15px;
+  }
+
+  body .site-header .brand-mark {
+    font-size: 27px;
+  }
+
+  body .header-actions .btn {
+    max-width: 88px;
+    overflow: hidden;
+    padding: 8px 9px;
+    font-size: 9px;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

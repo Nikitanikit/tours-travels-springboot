@@ -1,0 +1,29 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: tours-travels-mysql
+    environment:
+      MYSQL_DATABASE: tours_travels
+      MYSQL_USER: tours_user
+      MYSQL_PASSWORD: change_me
+      MYSQL_ROOT_PASSWORD: root_change_me
+    ports: ["3306:3306"]
+    volumes: ["tours-mysql-data:/var/lib/mysql"]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_change_me"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  app:
+    build: .
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: mysql
+      DB_URL: jdbc:mysql://mysql:3306/tours_travels?createDatabaseIfNotExist=true&serverTimezone=UTC
+      DB_USERNAME: tours_user
+      DB_PASSWORD: change_me
+    ports: ["8080:8080"]
+volumes:
+  tours-mysql-data:
